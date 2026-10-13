@@ -36,3 +36,42 @@ def test_hitung_nilai_stok_berhasil():
 def test_hitung_nilai_stok_harga_negatif():
     with pytest.raises(ValueError):
         hitung_nilai_stok(10, -5000)
+
+
+def test_tambah_stok_stok_awal_negatif():
+    with pytest.raises(ValueError):
+        tambah_stok(-1, 5)
+
+
+def test_tambah_stok_jumlah_negatif():
+    with pytest.raises(ValueError):
+        tambah_stok(10, -2)
+
+
+def test_kurangi_stok_stok_awal_negatif():
+    with pytest.raises(ValueError):
+        kurangi_stok(-1, 3)
+
+
+def test_kurangi_stok_jumlah_nol():
+    with pytest.raises(ValueError):
+        kurangi_stok(10, 0)
+
+
+def test_kurangi_stok_jumlah_negatif():
+    with pytest.raises(ValueError):
+        kurangi_stok(10, -2)
+
+
+def test_kurangi_stok_jumlah_sama_dengan_persediaan():
+    assert kurangi_stok(10, 10) == 0
+
+
+def test_hitung_nilai_stok_stok_negatif():
+    with pytest.raises(ValueError):
+        hitung_nilai_stok(-1, 5000)
+
+
+def test_hitung_nilai_stok_harga_nol():
+    assert hitung_nilai_stok(10, 0) == 0
+
